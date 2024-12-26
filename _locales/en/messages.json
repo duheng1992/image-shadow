@@ -1,6 +1,6 @@
 {
   "Title": {
-    "message": "ShadowSnap"
+    "message": "Shadow Snapshot"
   },
   "Description": {
     "message": "Add selectable border and shadow effects to your images."
@@ -36,7 +36,7 @@
     "message": "Click or drag file to this area to upload"
   },
   "DropTip": {
-    "message": "Support for a single upload. Strictly prohibited from uploading company data or other banned files."
+    "message": "Support for a single upload. Strictly prohibited from uploading company data or other banned files. Support: .png, .jepg, .webp"
   },
   "Preview": {
     "message": "Preview"

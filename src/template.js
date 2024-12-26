@@ -136,7 +136,7 @@ export const shadowPattern = [
       // 图片加载完成后，绘制到canvas上
       ctx.drawImage(img, getOffset(img.width), getOffset(img.height));
     },
-    style: { transform: 'translate(-6px, -4px)' },
+    style: { transform: 'translate(-2px, -4px)' },
     radioStyle: {
       transform: 'translate(8px, 8px)'
     }
@@ -159,7 +159,7 @@ export const shadowPattern = [
       // 图片加载完成后，绘制到canvas上
       ctx.drawImage(img, getOffset(img.width), getOffset(img.height));
     },
-    style: { transform: 'translate(-6px, -4px)' },
+    style: { transform: 'translate(-2px, -4px)' },
     radioStyle: {
       transform: 'translate(8px, 8px)'
     }

@@ -46,7 +46,7 @@ export default function UploadAndPreview(props) {
 
     // 创建一个<a>元素用于下载
     const link = document.createElement('a');
-    link.download = `canvasImage.${fileType.split('/')[1] || 'png'}`; // 设置下载文件名
+    link.download = `Shadow-Snapshot-Download.${fileType.split('/')[1] || 'png'}`; // 设置下载文件名
     link.href = dataURL;
     link.click(); // 模拟点击下载
   }
