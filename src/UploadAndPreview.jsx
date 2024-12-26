@@ -2,6 +2,7 @@ import { InboxOutlined } from '@ant-design/icons';
 import { Button, Upload, Typography } from 'antd'
 import React, { useState } from 'react'
 import ShadowItem from './ShadowItem';
+import { formatMessage } from './const';
 
 const { Dragger } = Upload;
 const { Title } = Typography;
@@ -11,9 +12,10 @@ export default function UploadAndPreview(props) {
   const { load, id, style } = props;
 
   const [fileList, setFileList] = useState([]);
+  const [fileType, setFileType] = useState('image/png');
 
   const uploadProps = {
-    accept: 'image/*',
+    accept: 'image/png,image/jepg,image/webp',
     maxCount: 1,
     onRemove: (file) => {
       const index = fileList.indexOf(file);
@@ -22,6 +24,7 @@ export default function UploadAndPreview(props) {
       setFileList(newFileList);
     },
     beforeUpload: (file) => {
+      setFileType(file.type);
       setFileList([{
         uid: file.uid,
         name: file.name,
@@ -39,45 +42,46 @@ export default function UploadAndPreview(props) {
 
   const download = () => {
     const canvas = document.getElementById(id);
-    const dataURL = canvas.toDataURL('image/png');
+    const dataURL = canvas.toDataURL(fileType);
 
     // 创建一个<a>元素用于下载
     const link = document.createElement('a');
-    link.download = 'canvasImage.png'; // 设置下载文件名
+    link.download = `canvasImage.${fileType.split('/')[1] || 'png'}`; // 设置下载文件名
     link.href = dataURL;
     link.click(); // 模拟点击下载
   }
 
-   return (
+  return (
     <div style={style}>
-      <Dragger {...uploadProps}>
-        <p className="ant-upload-drag-icon">
-          <InboxOutlined />
-        </p>
-        <p className="ant-upload-text">Click or drag file to this area to upload</p>
-        <p className="ant-upload-hint">
-          Support for a single upload. Strictly prohibited from uploading company data or other
-          banned files.
-        </p>
-      </Dragger>
-  
-      {fileList.length ? (
-        <>
-          <Title level={5} style={{ marginTop: '32px' }}>
-            Preview
-          </Title>
+      <div style={{ marginLeft: '32px' }}>
+        <Dragger {...uploadProps}>
+          <p className="ant-upload-drag-icon">
+            <InboxOutlined />
+          </p>
+          <p className="ant-upload-text">{formatMessage('DropTitle')}</p>
+          <p className="ant-upload-hint">
+            {formatMessage('DropTip')}
+          </p>
+        </Dragger>
 
-          <ShadowItem src={fileList[0].url} load={load} id={id} style={{ maxWidth: '750px' }} />
-        </>
-      ) : null}
+        {fileList.length ? (
+          <>
+            <Title level={5} style={{ marginTop: '32px' }}>
+              {formatMessage('Preview')}
+            </Title>
+
+            <ShadowItem src={fileList[0].url} load={load} id={id} preview style={{ maxWidth: '750px' }} />
+          </>
+        ) : null}
+      </div>
 
       <Title level={3} style={{ marginTop: '32px' }}>
-        3. Download image
+        3. {formatMessage('DownloadImage')}
       </Title>
 
-      <Button block size='large' style={{ marginTop: '32px' }} color="default" variant="solid" onClick={() => {
+      <Button size='large' style={{ marginTop: '32px', marginLeft: '32px', width: 'calc(100% - 32px)' }} color="default" variant="solid" onClick={() => {
         download();
-      }}>Download Image</Button>
+      }}>{formatMessage('DownloadAction')}</Button>
     </div>
   )
 }

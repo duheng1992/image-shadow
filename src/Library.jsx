@@ -1,15 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Radio } from 'antd';
+
 import ShadowItem from './ShadowItem';
 import { baseImage } from './const';
-
 import { shadowPattern } from './template';
-import { useEffect } from 'react';
 
 const initialValue = shadowPattern[0];
 
 export default function Library(props) {
-
   const { onSelect } = props;
 
   const [templateId, setTemplateId] = useState(initialValue.id);
@@ -27,7 +25,7 @@ export default function Library(props) {
     <Radio.Group
       value={templateId}
       optionType="button"
-      buttonStyle="solid"
+      // buttonStyle="solid"
       style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginLeft: '16px' }}
     >
       {shadowPattern.map((shadow, index) => {

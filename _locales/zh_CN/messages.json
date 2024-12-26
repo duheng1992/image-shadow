@@ -4,5 +4,47 @@
   },
   "Description": {
     "message": "给您的图片加上可选择的边框阴影效果"
+  },
+  "SelectTemplate": {
+    "message": "选择边框模板"
+  },
+  "UploadImage": {
+    "message": "上传你的图片"
+  },
+  "rectTranslate": {
+    "message": "重叠阴影"
+  },
+  "rectTranslateBlur": {
+    "message": "重叠模糊阴影"
+  },
+  "allBorderBlur1": {
+    "message": "边框阴影1"
+  },
+  "allBorderBlur2": {
+    "message": "边框阴影2"
+  },
+  "allBorderBlur3": {
+    "message": "边框阴影3"
+  },
+  "borderRadius1": {
+    "message": "圆角边框1"
+  },
+  "borderRadius2": {
+    "message": "圆角边框2"
+  },
+  "DropTitle": {
+    "message": "点击或拖拽文件到这里来上传吧"
+  },
+  "DropTip": {
+    "message": "支持单次上传。严格禁止上传公司数据或其他禁止的文件。"
+  },
+  "Preview": {
+    "message": "预览"
+  },
+  "DownloadImage": {
+    "message": "下载图片"
+  },
+  "DownloadAction": {
+    "message": "立即下载 !"
   }
 }

@@ -4,5 +4,47 @@
   },
   "Description": {
     "message": "Add selectable border and shadow effects to your images."
+  },
+  "SelectTemplate": {
+    "message": "Select Template"
+  },
+  "UploadImage": {
+    "message": "Upload your image"
+  },
+  "rectTranslate": {
+    "message": "Shadow1"
+  },
+  "rectTranslateBlur": {
+    "message": "Shadow2"
+  },
+  "allBorderBlur1": {
+    "message": "Shadow3"
+  },
+  "allBorderBlur2": {
+    "message": "Shadow4"
+  },
+  "allBorderBlur3": {
+    "message": "Shadow5"
+  },
+  "borderRadius1": {
+    "message": "Border1"
+  },
+  "borderRadius2": {
+    "message": "Border2"
+  },
+  "DropTitle": {
+    "message": "Click or drag file to this area to upload"
+  },
+  "DropTip": {
+    "message": "Support for a single upload. Strictly prohibited from uploading company data or other banned files."
+  },
+  "Preview": {
+    "message": "Preview"
+  },
+  "DownloadImage": {
+    "message": "Download image"
+  },
+  "DownloadAction": {
+    "message": "Download now !"
   }
 }

@@ -13,6 +13,9 @@
     "service_worker": "src/background.js",
     "persistent": false
   },
+  "side_panel": {
+    "default_path": "index.html"
+  },
   "action": {
     "default_title": "__MSG_Title__",
     "default_icon": {

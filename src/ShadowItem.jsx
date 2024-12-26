@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-import {baseImage} from './const';
+import { baseImage } from './const';
 
 export default function ShadowItem(props) {
-  const { id, load, src = baseImage, style } = props;
+  const { id, load, src = baseImage, style, preview } = props;
 
   const loadImage = () => {
     const canvas = document.getElementById(id);
@@ -12,13 +12,18 @@ export default function ShadowItem(props) {
 
     const img = new Image();
 
-    img.onload = function() {
+    img.onload = function () {
       load(canvas, ctx, img);
-      console.log(img.width, img.height);
     };
 
     img.src = src;
   }
+
+  useEffect(() => {
+    if (preview) {
+      loadImage();
+    }
+  }, [preview, id, src]);
 
   useEffect(() => {
     loadImage();

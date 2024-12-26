@@ -1,3 +1,5 @@
+import { formatMessage } from './const';
+
 const getWidthOffset = (width) => {
   return width < 1000 ? 30 : (width < 2000 ? 50 : 100);
 }
@@ -25,7 +27,7 @@ const getOffset = length => {
 
 export const shadowPattern = [
   {
-    id: 'rectTranslate',
+    id: formatMessage('rectTranslate'),
     load: (canvas, ctx, img) => {
       canvas.width = img.width + getWidthOffset(img.width);
       canvas.height = img.height + getHeightOffset(img.height);
@@ -43,11 +45,11 @@ export const shadowPattern = [
     }
   },
   {
-    id: 'rectTranslateBlur',
+    id: formatMessage('rectTranslateBlur'),
     load: (canvas, ctx, img) => {
       canvas.width = img.width + getWidthOffset(img.width);
       canvas.height = img.height + getHeightOffset(img.height);
-  
+
       // Shadow
       ctx.shadowColor = "#ccc";
       ctx.shadowBlur = getShadowBlur(img.width, img.height);
@@ -63,11 +65,11 @@ export const shadowPattern = [
     }
   },
   {
-    id: 'allBorderBlur1',
+    id: formatMessage('allBorderBlur1'),
     load: (canvas, ctx, img) => {
       canvas.width = img.width + getWidthOffset(img.width);
       canvas.height = img.height + getHeightOffset(img.height);
-  
+
       // Shadow
       ctx.shadowBlur = getShadowBlur(img.width, img.height);
       ctx.shadowColor = "#aaa";
@@ -81,11 +83,11 @@ export const shadowPattern = [
     }
   },
   {
-    id: 'allBorderBlur2',
+    id: formatMessage('allBorderBlur2'),
     load: (canvas, ctx, img) => {
       canvas.width = img.width + getWidthOffset(img.width);
       canvas.height = img.height + getHeightOffset(img.height);
-  
+
       // Shadow
       ctx.shadowBlur = getShadowBlur(img.width, img.height);
       ctx.shadowColor = "#ccc";
@@ -99,11 +101,11 @@ export const shadowPattern = [
     }
   },
   {
-    id: 'allBorderBlur3',
+    id: formatMessage('allBorderBlur3'),
     load: (canvas, ctx, img) => {
       canvas.width = img.width + getWidthOffset(img.width);
       canvas.height = img.height + getHeightOffset(img.height);
-  
+
       // Shadow
       ctx.shadowBlur = getShadowBlur(img.width, img.height);
       ctx.shadowColor = "#000";
@@ -117,7 +119,7 @@ export const shadowPattern = [
     }
   },
   {
-    id: 'borderRadius1',
+    id: formatMessage('borderRadius1'),
     load: (canvas, ctx, img) => {
       canvas.width = img.width + 30;
       canvas.height = img.height + 30;
@@ -127,12 +129,12 @@ export const shadowPattern = [
       ctx.strokeStyle = "#000";
       ctx.lineWidth = Math.max(img.width, img.height) > 1500 ? 10 : 5;
 
-      ctx.roundRect(20, 20, img.width, img.height, 10);
+      ctx.roundRect(getOffset(img.width), getOffset(img.height), img.width, img.height, 10);
       ctx.stroke();
       ctx.clip();
-      
+
       // 图片加载完成后，绘制到canvas上
-      ctx.drawImage(img, 20, 20);
+      ctx.drawImage(img, getOffset(img.width), getOffset(img.height));
     },
     style: { transform: 'translate(-6px, -4px)' },
     radioStyle: {
@@ -140,7 +142,7 @@ export const shadowPattern = [
     }
   },
   {
-    id: 'borderRadius2',
+    id: formatMessage('borderRadius2'),
     load: (canvas, ctx, img) => {
       canvas.width = img.width + 30;
       canvas.height = img.height + 30;
@@ -150,12 +152,12 @@ export const shadowPattern = [
       ctx.strokeStyle = "#aaa";
       ctx.lineWidth = Math.max(img.width, img.height) > 1500 ? 10 : 5;
 
-      ctx.roundRect(20, 20, img.width, img.height, 10);
+      ctx.roundRect(getOffset(img.width), getOffset(img.height), img.width, img.height, 10);
       ctx.stroke();
       ctx.clip();
-      
+
       // 图片加载完成后，绘制到canvas上
-      ctx.drawImage(img, 20, 20);
+      ctx.drawImage(img, getOffset(img.width), getOffset(img.height));
     },
     style: { transform: 'translate(-6px, -4px)' },
     radioStyle: {
